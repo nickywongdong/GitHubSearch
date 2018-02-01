@@ -18,6 +18,8 @@ public class NetworkUtils {
 
     private static final OkHttpClient mHTTPClient = new OkHttpClient();
 
+
+    //except this function to throw exception
     public static String doHTTPGet(String url) throws IOException {
 
         Request req = new Request.Builder().url(url).build();

@@ -51,16 +51,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doGitHubSearch(String searchQuery) {
-        URL githubSearchURL = GitHubUtils.buildGitHubSearchURL(searchQuery);
+        String githubSearchURL = GitHubUtils.buildGitHubSearchURL(searchQuery);
         Log.d(TAG, "querying search URL: " + githubSearchURL);
         new GitHubSearchTask().execute(githubSearchURL);
     }
 
-    public class GitHubSearchTask extends AsyncTask<URL, Void, String> {
+    public class GitHubSearchTask extends AsyncTask<String, Void, String> {
 
         @Override
-        protected String doInBackground(URL... urls) {
-            URL githubSearchURL = urls[0];
+        protected String doInBackground(String... urls) {
+            String githubSearchURL = urls[0];
 
             String searchResults = null;
             try {
